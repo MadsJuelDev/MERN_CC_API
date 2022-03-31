@@ -7,12 +7,17 @@ const yaml = require("yamljs");
 
 const swaggerDefinition = yaml.load("./swagger.yaml");
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
+//Welcom Route
+app.get("/api/welcome", (req, res) => {
+  res.status(200).send({ message: "Welcome to the character creator API" });
+});
 
 //import product routes
 const hairRoutes = require("./routes/hair");
 const bodyTopRoutes = require("./routes/bodyTop");
 const bodyBottomRoutes = require("./routes/bodyBottom");
 const shoeRoutes = require("./routes/shoe");
+const authRoutes = require("./routes/auth");
 
 require("dotenv-flow").config();
 const PORT = process.env.PORT || 4001;
@@ -25,6 +30,9 @@ app.listen(PORT, function () {
 app.use(express.json());
 
 //routes (get,post,put,delete (CRUD))
+//Auth
+app.use("/api/user", authRoutes);
+// Assets
 app.use("/api/hair", hairRoutes);
 app.use("/api/bodyTop", bodyTopRoutes);
 app.use("/api/bodyBottom", bodyBottomRoutes);

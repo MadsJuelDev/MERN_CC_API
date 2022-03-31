@@ -9,7 +9,7 @@ router.post("/", (req, res) => {
   hair
     .insertMany(data)
     .then((data) => {
-      res.send(data);
+      res.status(201).send(data);
     })
     .catch((err) => {
       res.status(500).send({ message: err.message });
@@ -108,6 +108,7 @@ router.delete("/:id", (req, res) => {
 function mapProdArray(obj) {
   let outputArr = obj.map((element) => ({
     id: element._id,
+    name: element.name,
     color: element.color,
     style: element.style,
     assetLocation: element.assetLocation,
