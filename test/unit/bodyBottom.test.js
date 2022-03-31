@@ -38,7 +38,6 @@ describe("/BodyBottom Test Collection", () => {
       .request(server)
       .get("/api/bodyBottom")
       .end((err, res) => {
-        this.timeout(0);
         res.should.have.status(200);
         res.body.should.be.a("array");
         res.body.length.should.be.equal(0);
@@ -66,7 +65,6 @@ describe("/BodyBottom Test Collection", () => {
       .request(server)
       .get("/api/bodyBottom")
       .end((err, res) => {
-        this.timeout(0);
         res.should.have.status(200);
         res.body.should.be.a("array");
         res.body.length.should.be.equal(1);
