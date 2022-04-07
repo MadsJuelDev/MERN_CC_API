@@ -19,7 +19,7 @@ after((done) => {
 });
 
 describe("/BodyBottom Test Collection", () => {
-  it("Test default welcome message route", (done) => {
+  it("Test default welcome message route - test", (done) => {
     //actual test in here
     chai
       .request(server)
