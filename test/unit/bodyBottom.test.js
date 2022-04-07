@@ -19,6 +19,17 @@ after((done) => {
 });
 
 describe("/BodyBottom Test Collection", () => {
+  it("Test the connection to the database", (done) => {
+    //actual test in here
+    chai
+      .request(server)
+      .get("/api/")
+      .end((err, res) => {
+        res.should.have.status(404);
+        done();
+      });
+  });
+
   it("Test default welcome message route - test", (done) => {
     //actual test in here
     chai
