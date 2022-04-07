@@ -33,6 +33,15 @@ describe("/BodyBottom Test Collection", () => {
       });
   });
 
+  it("Verify that bodyBottom exists", (done) => {
+    chai
+      .request(server)
+      .get("/api/bodyBottom")
+      .end((err, res) => {
+        res.should.have.status(200);
+        done();
+      });
+  });
   it("Verify that there are 0 types of bodyBottom assets in the DB", (done) => {
     chai
       .request(server)
