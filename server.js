@@ -9,7 +9,7 @@ const swaggerDefinition = yaml.load("./swagger.yaml");
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
 //Welcom Route
 app.get("/api/welcome", (req, res) => {
-  res.status(200).send({ message: "Welcome to the character creator API boi" });
+  res.status(200).send({ message: "Welcome to the character creator API" });
 });
 
 //import product routes
