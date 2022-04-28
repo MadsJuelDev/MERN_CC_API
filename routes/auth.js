@@ -79,7 +79,9 @@ router.post("/login", async (req, res) => {
     { expiresIn: process.env.JWT_EXPIRES_IN }
     //Expiration time
   );
-  //attach authentication token to cookie
+  const username = user.name;
+  const userID = user._id;
+  //attach authentication token to header
   res.header("auth-token", token).json({
     error: null,
     data: { token },
